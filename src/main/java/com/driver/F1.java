@@ -2,7 +2,7 @@ package com.driver;
 
 public class F1 extends Car {
     public F1(String name, boolean isManual) {
-        super(name, 4, 2, 6, isManual, "F1", 1);
+        super(name, 4, 2, 6, isManual, "Petrol", 1);
     }
 
     public void accelerate(int rate) {
@@ -11,21 +11,16 @@ public class F1 extends Car {
         if (newSpeed <= 0) {
             stop();
             changeGear(1);
-        } else {
-            if (newSpeed <= 50) {
-                changeGear(1);
-            } else if (newSpeed <= 100) {
-                changeGear(2);
-            } else if (newSpeed <= 150) {
-                changeGear(3);
-            } else if (newSpeed <= 200) {
-                changeGear(4);
-            } else if (newSpeed <= 250) {
-                changeGear(5);
-            } else {
-                changeGear(6);
-            }
-            changeSpeed(newSpeed, getCurrentDirection());
+            return;
         }
+
+        if (newSpeed <= 50) changeGear(1);
+        else if (newSpeed <= 100) changeGear(2);
+        else if (newSpeed <= 150) changeGear(3);
+        else if (newSpeed <= 200) changeGear(4);
+        else if (newSpeed <= 250) changeGear(5);
+        else changeGear(6);
+
+        changeSpeed(newSpeed, getCurrentDirection());
     }
 }
