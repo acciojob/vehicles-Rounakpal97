@@ -25,7 +25,7 @@ public class TestCases {
         // ---------- Test F1 ----------
         F1 ferrari = new F1("Ferrari", true);
         ferrari.move(50, 0);
-        ferrari.accelerate(60);   // should increase speed and change gear
+        ferrari.accelerate(60);   // increase speed and change gear
         ferrari.accelerate(200);  // push to higher gear
         ferrari.accelerate(-100); // slow down
 
