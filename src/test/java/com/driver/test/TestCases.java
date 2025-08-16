@@ -1,43 +1,65 @@
 package com.driver.test;
 
+import static org.junit.Assert.*;
+import org.junit.Test;
 import com.driver.*;
 
 public class TestCases {
-    public static void main(String[] args) {
-        // ---------- Test Vehicle ----------
-        Vehicle v = new Vehicle("Generic Vehicle");
-        v.move(30, 45);
-        v.steer(15);
-        v.stop();
-        System.out.println("Vehicle name: " + v.getName());
-        System.out.println("Current Speed: " + v.getCurrentSpeed());
-        System.out.println("Current Direction: " + v.getCurrentDirection());
 
-        System.out.println("-----------------------------");
+    @Test
+    public void testCar1() {
+        Car car = new Car(4, 4, 6, 5, true, "Sedan");
 
-        // ---------- Test Car ----------
-        Car car = new Car("Sedan", 4, 4, 5, true, "Petrol", 5);
+        assertEquals(4, car.getDoors());
+        assertEquals(6, car.getGears());
+        assertEquals(4, car.getWheels());
+        assertTrue(car.isManual());
+        assertEquals("Sedan", car.getType());
+        assertEquals(5, car.getSeats());
+    }
+
+    @Test
+    public void testF11() {
+        F1 f1 = new F1(4, 0, 8, 1, false, "Formula");
+        f1.changeGear(1);
+        f1.move(100, 30);
+        f1.steer(75);
+        f1.stop();
+
+        assertFalse(f1.isManual());
+    }
+
+    @Test
+    public void testF12() {
+        F1 f1 = new F1(4, 0, 8, 1, false, "Formula");
+        f1.changeGear(3);
+        f1.move(120, 45);
+        f1.steer(60);
+        f1.stop();
+
+        assertEquals(8, f1.getGears());
+    }
+
+    @Test
+    public void testBoat() {
+        Boat boat = new Boat(10, "Blue");
+        assertEquals(10, boat.getCapacity());
+        assertEquals("Blue", boat.getColor());
+    }
+
+    @Test
+    public void testVehicleMove() {
+        Vehicle vehicle = new Vehicle();
+        vehicle.move(20, 30);
+        vehicle.steer(90);
+        vehicle.stop();
+    }
+
+    @Test
+    public void testCarGearChange() {
+        Car car = new Car(4, 4, 6, 5, true, "Sedan");
         car.changeGear(2);
-        car.changeSpeed(60, 90);
-
-        System.out.println("-----------------------------");
-
-        // ---------- Test F1 ----------
-        F1 ferrari = new F1("Ferrari", true);
-        ferrari.move(50, 0);
-        ferrari.accelerate(60);   // increase speed and change gear
-        ferrari.accelerate(200);  // push to higher gear
-        ferrari.accelerate(-100); // slow down
-
-        System.out.println("-----------------------------");
-
-        // ---------- Test Boat ----------
-        Boat yacht = new Boat("Yacht", 40);
-        System.out.println("Boat Name: " + yacht.getVehicleName());
-        System.out.println("Boat Capacity: " + yacht.getVehicleCapacity());
-
-        Boat fishingBoat = new Boat("Fishing Boat", 10);
-        System.out.println("Boat Name: " + fishingBoat.getVehicleName());
-        System.out.println("Boat Capacity: " + fishingBoat.getVehicleCapacity());
+        car.changeGear(3);
+        car.changeGear(4);
     }
 }
