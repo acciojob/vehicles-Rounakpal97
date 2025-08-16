@@ -29,15 +29,7 @@ public class Vehicle {
     }
 
     // Getters
-    public int getCurrentSpeed() {
-        return currentSpeed;
-    }
-
-    public int getCurrentDirection() {
-        return currentDirection;
-    }
-
-    public String getName() {
-        return name;
-    }
+    public int getCurrentSpeed() { return currentSpeed; }
+    public int getCurrentDirection() { return currentDirection; }
+    public String getName() { return name; }
 }
