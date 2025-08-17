@@ -1,33 +1,39 @@
-// Vehicle.java
 package com.driver;
 
 public class Vehicle {
-    private int speed;
-    private int direction;
+    private String name;
+    private int currentSpeed;
+    private int currentDirection;
 
-    public Vehicle() {
-        this.speed = 0;
-        this.direction = 0;
-    }
-
-    public void changeSpeed(int speed, int direction) {
-        this.speed = speed;
-        this.direction = direction;
-        System.out.println("changeSpeed method called - The speed is changed to: " + speed + ", and the direction is changed to: " + direction + " degrees");
-    }
-
-    public void move(int speed, int direction) {
-        changeSpeed(speed, direction);
-        System.out.println("move method called - The speed is changed to: " + speed + ", and the direction is changed to: " + direction + " degrees");
+    public Vehicle(String name) {
+        this.name = name;
+        this.currentSpeed = 0;
+        this.currentDirection = 0;
     }
 
     public void steer(int direction) {
-        this.direction = direction;
-        System.out.println("steer method called - The direction is changed to: " + direction + " degrees");
+        this.currentDirection += direction;
+    }
+
+    public void move(int speed, int direction) {
+        this.currentSpeed = speed;
+        this.currentDirection = direction;
     }
 
     public void stop() {
-        this.speed = 0;
-        System.out.println("stop method called - The vehicle is stopped");
+        this.currentSpeed = 0;
+    }
+
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
     }
 }
