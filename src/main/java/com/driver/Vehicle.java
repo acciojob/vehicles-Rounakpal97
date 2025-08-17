@@ -1,31 +1,28 @@
 package com.driver;
 
 public class Vehicle {
+
     private String name;
-    private int speed;
-    private int fuel;
+    private int currentSpeed;
+    private int currentDirection;
 
-    // Constructor 1
     public Vehicle(String name) {
-        this.name = name;
+
     }
 
-    // Constructor 2 (needed for Car)
-    public Vehicle(String name, int speed, int fuel) {
-        this.name = name;
-        this.speed = speed;
-        this.fuel = fuel;
+    public void steer(int direction){
+        //direction is in degrees, add it to the current direction
+        System.out.println("steer method called - The direction is changed to: " + currentDirection + " degrees");
     }
 
-    public String getName() {
-        return name;
+    public void move(int speed, int direction){
+        //set the values of currentSpeed and currentDirection
+        System.out.println("move method called - The speed is changed to: " + currentSpeed + ", and the direction is changed to: " + currentDirection + " degrees");
     }
 
-    public int getSpeed() {
-        return speed;
+    public void stop(){
+
+        System.out.println("stop method called - The vehicle is stopped");
     }
 
-    public int getFuel() {
-        return fuel;
-    }
 }
