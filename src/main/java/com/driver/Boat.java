@@ -1,16 +1,21 @@
-// Boat.java
 package com.driver;
 
 public class Boat implements WaterVehicle {
+    private String name;
     private int capacity;
-    private String color;
 
-    public Boat(int capacity, String color) {
-        super();
+    public Boat(String name, int capacity) {
+        this.name = name;
         this.capacity = capacity;
-        this.color = color;
     }
 
-    public int getCapacity() { return capacity; }
-    public String getColor() { return color; }
+    @Override
+    public String getVehicleName() {
+        return name;
+    }
+
+    @Override
+    public int getCapacity() {
+        return capacity;
+    }
 }
