@@ -1,7 +1,7 @@
 // Boat.java
 package com.driver;
 
-public class Boat extends Vehicle {
+public class Boat implements WaterVehicle {
     private int capacity;
     private String color;
 
