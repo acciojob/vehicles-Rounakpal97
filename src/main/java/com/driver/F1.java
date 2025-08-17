@@ -2,31 +2,13 @@ package com.driver;
 
 public class F1 extends Car {
 
-    public F1(String name, boolean isManual) {
-        super(name, 2, 6, isManual, "Sports", 2); // Formula 1: 2 doors, 6 gears, 2 seats
+    // Match Car constructor (7 parameters!)
+    public F1(String name, int speed, int fuel, int numberOfDoors, boolean isManual, String model, int seats) {
+        super(name, speed, fuel, numberOfDoors, isManual, model, seats);
     }
 
-    public void accelerate(int rate) {
-        int newSpeed = getCurrentSpeed() + rate;
-        if (newSpeed < 0) newSpeed = 0;
-
-        if (newSpeed == 0) {
-            stop();
-            changeGear(1);
-        } else if (newSpeed <= 50) {
-            changeGear(1);
-        } else if (newSpeed <= 100) {
-            changeGear(2);
-        } else if (newSpeed <= 150) {
-            changeGear(3);
-        } else if (newSpeed <= 200) {
-            changeGear(4);
-        } else if (newSpeed <= 250) {
-            changeGear(5);
-        } else {
-            changeGear(6);
-        }
-
-        changeSpeed(newSpeed, getCurrentDirection());
+    // Extra methods for racing
+    public void accelerate(int speedChange, int gearChange) {
+        changeSpeed(getCurrentSpeed() + speedChange, gearChange);
     }
 }
