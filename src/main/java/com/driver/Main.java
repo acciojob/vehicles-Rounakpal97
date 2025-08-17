@@ -8,6 +8,6 @@ public class Main {
         Boat boat = new Boat("Yacht", 50);
 
         System.out.println("Car: " + f1.getName() + ", Speed: " + f1.getCurrentSpeed() + ", Gear: " + f1.getCurrentGear());
-        System.out.println("Boat: " + boat.getVehicleName() + ", Capacity: " + boat.getCapacity());
+        System.out.println("Boat: " + boat.getVehicleName() + ", Capacity: " + boat.getVehicleCapacity());
     }
 }
