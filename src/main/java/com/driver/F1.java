@@ -1,23 +1,32 @@
-// F1.java
 package com.driver;
 
 public class F1 extends Car {
-    public F1(int wheels, int doors, int gears, int seats, boolean isManual, String type) {
-        super(wheels, doors, gears, seats, isManual, type);
+
+    public F1(String name, boolean isManual) {
+        super(name, 2, 6, isManual, "Sports", 2); // Formula 1: 2 doors, 6 gears, 2 seats
     }
 
-    @Override
-    public boolean isManual() {
-        return super.isManual();
-    }
+    public void accelerate(int rate) {
+        int newSpeed = getCurrentSpeed() + rate;
+        if (newSpeed < 0) newSpeed = 0;
 
-    @Override
-    public void changeGear(int gear) {
-        super.changeGear(gear);
-    }
+        if (newSpeed == 0) {
+            stop();
+            changeGear(1);
+        } else if (newSpeed <= 50) {
+            changeGear(1);
+        } else if (newSpeed <= 100) {
+            changeGear(2);
+        } else if (newSpeed <= 150) {
+            changeGear(3);
+        } else if (newSpeed <= 200) {
+            changeGear(4);
+        } else if (newSpeed <= 250) {
+            changeGear(5);
+        } else {
+            changeGear(6);
+        }
 
-    @Override
-    public void move(int speed, int direction) {
-        super.move(speed, direction);
+        changeSpeed(newSpeed, getCurrentDirection());
     }
 }
