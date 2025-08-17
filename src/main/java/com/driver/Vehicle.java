@@ -2,38 +2,30 @@ package com.driver;
 
 public class Vehicle {
     private String name;
-    private int currentSpeed;
-    private int currentDirection;
+    private int speed;
+    private int fuel;
 
+    // Constructor 1
     public Vehicle(String name) {
         this.name = name;
-        this.currentSpeed = 0;
-        this.currentDirection = 0;
     }
 
-    public void steer(int direction) {
-        this.currentDirection += direction;
+    // Constructor 2 (needed for Car)
+    public Vehicle(String name, int speed, int fuel) {
+        this.name = name;
+        this.speed = speed;
+        this.fuel = fuel;
     }
 
-    public void move(int speed, int direction) {
-        this.currentSpeed = speed;
-        this.currentDirection = direction;
-    }
-
-    public void stop() {
-        this.currentSpeed = 0;
-    }
-
-    // Getters
     public String getName() {
         return name;
     }
 
-    public int getCurrentSpeed() {
-        return currentSpeed;
+    public int getSpeed() {
+        return speed;
     }
 
-    public int getCurrentDirection() {
-        return currentDirection;
+    public int getFuel() {
+        return fuel;
     }
 }
