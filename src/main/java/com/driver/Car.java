@@ -1,42 +1,25 @@
 package com.driver;
 
 public class Car extends Vehicle {
-    private int numberOfDoors;
+    private int wheels;
+    private String type;
+    private int doors;
+    private int gears;
     private boolean isManual;
-    private String model;
+    private int currentGear;
     private int seats;
 
-    // For gear/speed tracking
-    private int currentSpeed;
-    private int currentGear;
-
-    // Constructor with all args (as required by tests)
-    public Car(String name, int speed, int fuel, int numberOfDoors, boolean isManual, String model, int seats) {
-        super(name, speed, fuel);
-        this.numberOfDoors = numberOfDoors;
-        this.isManual = isManual;
-        this.model = model;
-        this.seats = seats;
-        this.currentGear = 1; // default
-        this.currentSpeed = 0;
+    public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
+        //Hint: Car extends Vehicle
     }
 
-    // Methods expected in tests
-    public void changeGear(int gear) {
-        this.currentGear = gear;
+    public void changeGear(int newGear){
+
+        System.out.println("changeGear method called - The gear is changed to: " + currentGear);
     }
 
-    public void changeSpeed(int speed, int gear) {
-        this.currentSpeed = speed;
-        this.currentGear = gear;
-    }
+    public void changeSpeed(int newSpeed, int newDirection){
 
-    // Getters
-    public int getCurrentGear() {
-        return currentGear;
-    }
-
-    public int getCurrentSpeed() {
-        return currentSpeed;
+        System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
     }
 }
