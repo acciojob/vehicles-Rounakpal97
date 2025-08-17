@@ -1,35 +1,41 @@
-// Car.java
 package com.driver;
 
 public class Car extends Vehicle {
-    private int wheels;
     private int doors;
     private int gears;
-    private int seats;
     private boolean isManual;
     private int currentGear;
     private String type;
+    private int seats;
+    private int wheels;
 
-    public Car(int wheels, int doors, int gears, int seats, boolean isManual, String type) {
-        super();
-        this.wheels = wheels;
+    public Car(String name, int doors, int gears, boolean isManual, String type, int seats) {
+        super(name);
         this.doors = doors;
         this.gears = gears;
-        this.seats = seats;
         this.isManual = isManual;
         this.type = type;
+        this.seats = seats;
+        this.wheels = 4; // standard for cars
         this.currentGear = 1;
     }
 
-    public int getWheels() { return wheels; }
+    public void changeGear(int gear) {
+        if (gear >= 1 && gear <= gears) {
+            this.currentGear = gear;
+        }
+    }
+
+    public void changeSpeed(int speed, int direction) {
+        move(speed, direction);
+    }
+
+    // Getters for tests
     public int getDoors() { return doors; }
     public int getGears() { return gears; }
-    public int getSeats() { return seats; }
     public boolean isManual() { return isManual; }
+    public int getCurrentGear() { return currentGear; }
     public String getType() { return type; }
-
-    public void changeGear(int gear) {
-        this.currentGear = gear;
-        System.out.println("changeGear method called - The gear is changed to: " + gear);
-    }
+    public int getSeats() { return seats; }
+    public int getWheels() { return wheels; }
 }
